@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>michaela | 소프트웨어 품질관리 전문가</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
+        }
+
+        body {
+            scroll-behavior: smooth;
+        }
+
+        /* Typing Animation */
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background-color: #10b981;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49% {
+                opacity: 1;
+            }
+            50%, 100% {
+                opacity: 0;
+            }
+        }
+
+        /* Fade in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Smooth hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Active nav link */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #10b981;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link.active {
+            color: #10b981;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-gray-100">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold gradient-text">michaela</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex space-x-8">
+                        <a href="#about" class="nav-link text-gray-300 hover:text-emerald-400">About</a>
+                        <a href="#skills" class="nav-link text-gray-300 hover:text-emerald-400">Skills</a>
+                        <a href="#projects" class="nav-link text-gray-300 hover:text-emerald-400">Projects</a>
+                        <a href="#contact" class="nav-link text-gray-300 hover:text-emerald-400">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-gray-700 hover:text-violet-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-emerald-400">About</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-emerald-400">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-emerald-400">Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-emerald-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800 to-slate-900">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-5xl sm:text-6xl font-bold mb-4 text-white">michaela</h1>
+            <div class="text-2xl sm:text-3xl text-gray-300 mb-8 h-12 flex items-center justify-center">
+                <span id="typing-text">소프트웨어 품질관리 전문가</span>
+                <span class="typing-cursor"></span>
+            </div>
+            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
+                15년 이상의 경력으로 프로덕트의 품질을 보장하고, 테스트 전략을 수립합니다.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="px-8 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-600 transition">
+                    Contact Me
+                </a>
+                <a href="#projects" class="px-8 py-3 border-2 border-emerald-500 text-emerald-400 font-semibold rounded-lg hover:bg-emerald-500 hover:text-white transition">
+                    View Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">About Me</h2>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        소프트웨어 품질관리 전문가로서 다양한 규모의 프로젝트에서 QA 전략 수립, 테스트 자동화, 품질 지표 분석을 담당했습니다.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        프로덕트의 신뢰성을 높이고 사용자 경험을 개선하는 것을 목표로 지속적으로 최신 QA 기법과 도구를 습득하고 있습니다.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        팀과의 협업을 통해 개발 문화를 개선하고, 버그를 조기에 발견할 수 있는 프로세스를 구축하는 데 기여하고 있습니다.
+                    </p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-slate-700 border border-slate-600 p-6 rounded-lg card-hover">
+                        <div class="text-3xl font-bold gradient-text mb-2">15+</div>
+                        <div class="text-gray-300 font-semibold">Years Experience</div>
+                    </div>
+                    <div class="bg-slate-700 border border-slate-600 p-6 rounded-lg card-hover">
+                        <div class="text-3xl font-bold gradient-text mb-2">50+</div>
+                        <div class="text-gray-300 font-semibold">Products Released</div>
+                    </div>
+                    <div class="bg-slate-700 border border-slate-600 p-6 rounded-lg card-hover">
+                        <div class="text-3xl font-bold gradient-text mb-2">100+</div>
+                        <div class="text-gray-300 font-semibold">Projects Managed</div>
+                    </div>
+                    <div class="bg-slate-700 border border-slate-600 p-6 rounded-lg card-hover">
+                        <div class="text-3xl font-bold gradient-text mb-2">99%+</div>
+                        <div class="text-gray-300 font-semibold">Quality Score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Skills & Expertise</h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- QA & Testing -->
+                <div class="bg-slate-800 p-8 rounded-lg shadow-md card-hover border border-slate-700">
+                    <h3 class="text-xl font-bold text-white mb-6">QA & Testing</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">QA Process</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Test Case Design</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">API Testing</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">UI Testing</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Performance Testing</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Test Automation</span>
+                    </div>
+                </div>
+
+                <!-- Development Tools -->
+                <div class="bg-slate-800 p-8 rounded-lg shadow-md card-hover border border-slate-700">
+                    <h3 class="text-xl font-bold text-white mb-6">Development Tools</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Jenkins</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Git</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Python</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Java</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Selenium</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Postman</span>
+                    </div>
+                </div>
+
+                <!-- Infrastructure -->
+                <div class="bg-slate-800 p-8 rounded-lg shadow-md card-hover border border-slate-700">
+                    <h3 class="text-xl font-bold text-white mb-6">Infrastructure</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">SQL</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Linux</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Docker</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">AWS</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">CI/CD</span>
+                        <span class="px-4 py-2 bg-emerald-900 text-emerald-300 rounded-full font-semibold text-sm">Kubernetes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Featured Projects</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto">
+                    다양한 QA 프로젝트에서 주도적으로 진행했던 대표 사례들입니다. 각 프로젝트를 통해 품질 관리의 중요성과 혁신적인 테스트 전략을 실증했습니다.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-slate-700 border border-slate-600 rounded-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-emerald-600 to-emerald-400 h-32"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Test Automation Pipeline</h3>
+                        <p class="text-gray-400 mb-4">
+                            Jenkins를 활용한 자동화된 테스트 파이프라인 구축으로 배포 시간 50% 단축 및 버그 조기 발견.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-emerald-900 text-emerald-300 rounded text-sm font-semibold">Jenkins</span>
+                            <span class="px-3 py-1 bg-emerald-900 text-emerald-300 rounded text-sm font-semibold">Python</span>
+                            <span class="px-3 py-1 bg-emerald-900 text-emerald-300 rounded text-sm font-semibold">Selenium</span>
+                        </div>
+                        <a href="#" class="text-emerald-400 font-semibold hover:text-emerald-300">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-violet-400 to-violet-200 h-32"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">API Test Framework</h3>
+                        <p class="text-gray-400 mb-4">
+                            RESTful API 테스트를 위한 포괄적인 프레임워크 설계 및 구현으로 API 안정성 확보.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-emerald-900 text-emerald-300 rounded text-sm font-semibold">Postman</span>
+                            <span class="px-3 py-1 bg-emerald-900 text-emerald-300 rounded text-sm font-semibold">Java</span>
+                            <span class="px-3 py-1 bg-emerald-900 text-emerald-300 rounded text-sm font-semibold">REST</span>
+                        </div>
+                        <a href="#" class="text-emerald-400 font-semibold hover:text-emerald-300">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-violet-500 to-violet-300 h-32"></div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Release Quality Process</h3>
+                        <p class="text-gray-400 mb-4">
+                            릴리즈 전 품질 관리 프로세스 개선으로 프로덕션 버그 30% 감소 및 고객 만족도 향상.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-emerald-900 text-emerald-300 rounded text-sm font-semibold">QA Process</span>
+                            <span class="px-3 py-1 bg-emerald-900 text-emerald-300 rounded text-sm font-semibold">Test Plan</span>
+                            <span class="px-3 py-1 bg-emerald-900 text-emerald-300 rounded text-sm font-semibold">Metrics</span>
+                        </div>
+                        <a href="#" class="text-emerald-400 font-semibold hover:text-emerald-300">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-800 to-slate-900">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Get In Touch</h2>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+                    <p class="text-lg text-gray-300 mb-8">
+                        새로운 기회나 협업에 대해 이야기하고 싶으시다면 언제든지 연락주세요.
+                    </p>
+
+                    <div class="mb-8">
+                        <p class="text-gray-400 mb-2">Email</p>
+                        <a href="mailto:qa@gmail.com" class="text-2xl font-semibold text-emerald-400 hover:text-emerald-300">
+                            qa@gmail.com
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div>
+                        <p class="text-gray-400 mb-4">Follow Me</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center text-emerald-400 hover:bg-emerald-600 transition">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center text-emerald-400 hover:bg-emerald-600 transition">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-slate-700 p-8 rounded-lg shadow-md border border-slate-600">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-gray-300 font-semibold mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-2 bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:border-emerald-500" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 font-semibold mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-2 bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:border-emerald-500" placeholder="Your Email">
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 font-semibold mb-2">Message</label>
+                            <textarea rows="5" class="w-full px-4 py-2 bg-slate-800 border border-slate-600 text-white rounded-lg focus:outline-none focus:border-emerald-500" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-600 transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-400">© 2026 michaela. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Typing Animation =====
+        const typingTexts = [
+            '소프트웨어 품질관리 전문가',
+            'QA Engineer',
+            'Test Strategist',
+            'Quality Advocate'
+        ];
+
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+
+        function typeText() {
+            const typingElement = document.getElementById('typing-text');
+            const currentText = typingTexts[textIndex];
+
+            if (!isDeleting && charIndex < currentText.length) {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                setTimeout(typeText, typingSpeed);
+            } else if (isDeleting && charIndex > 0) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(typeText, deletingSpeed);
+            } else if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeText, pauseTime);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typingTexts.length;
+                setTimeout(typeText, 500);
+            }
+        }
+
+        // ===== Scroll Navigation Background =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-slate-800', 'shadow-md');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-slate-800', 'shadow-md');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // ===== Mobile Menu Toggle =====
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // ===== Active Nav Link =====
+        function updateActiveNavLink() {
+            const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (!section) return;
+
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom > 100) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+
+        // ===== Intersection Observer for Fade-in Animation =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards for animation
+        document.querySelectorAll('[id="projects"] .card-hover').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+
+        // Observe skill cards
+        document.querySelectorAll('[id="skills"] .card-hover').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+
+        // ===== Initialize Typing Animation =====
+        typeText();
+    </script>
+</body>
+</html>
